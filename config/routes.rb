@@ -1,7 +1,19 @@
 RailsTest::Application.routes.draw do
+  
+
+  resources :combos
+
+  resources :members 
+  
+  resources :activities
+  
+  resources :people
+
   root :to => "welcome#index"
   get "welcome/say_hello" => "welcome#say"
   get "welcome" => "welcome#index"
+  
+  get "/activities/new/:memberId" => "activities#new"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
