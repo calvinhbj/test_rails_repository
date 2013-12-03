@@ -1,0 +1,35 @@
+<%= form_for(@activity) do |f| %>
+  <% if @activity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
+
+      <ul>
+      <% @activity.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :fee %><br>
+    <%= f.text_field :fee %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field" style="display:none">
+    <%= f.label :member_id %><br>
+    <%= f.number_field :member_id %>
+  </div>
+  <!-- <input value="<%=@mid%>" name="member_id" type="hidden" />
+  <input type="number" value="1" name="activity[member_id]" id="activity_member_id">-->
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
