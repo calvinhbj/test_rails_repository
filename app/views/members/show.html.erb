@@ -35,7 +35,7 @@
   </thead>
 
   <tbody>
-    <% @activities.each do |activity| %>
+    <% @member.activity.each do |activity| %>
       <tr>
         <td><%= activity.name %></td>
         <td><%= activity.fee %></td>
@@ -43,9 +43,9 @@
         <td><% if activity.member != nil %>
         		<a><%=activity.member.name%></a>
         	<% end %></td>
-        <td><%= link_to 'Show', activity %></td>
-        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', member_activity_path({:member_id => @member.id, :id => activity.id }) %></td>
+        <td><%= link_to 'Edit', edit_member_activity_path({:member_id => @member.id, :id => activity.id }) %></td>
+        <td><%= link_to 'Destroy',member_activity_path({:member_id => @member.id, :id => activity.id }), method: :delete, data: {:id => activity.id , confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

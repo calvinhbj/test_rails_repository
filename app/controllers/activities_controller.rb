@@ -15,7 +15,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/new
   def new
     @activity = Activity.new
-    @mid = params.require(:memberId)
+    @mid = params.require(:member_id)
     @activity.member_id = @mid
     #@mid = params.require(:memberId)
   end
@@ -45,7 +45,7 @@ class ActivitiesController < ApplicationController
   def update
     respond_to do |format|
       if @activity.update(activity_params)
-        format.html { redirect_to @activity, notice: 'Activity was successfully updated.' }
+        format.html { redirect_to  member_url(), notice: 'Activity was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,9 +57,10 @@ class ActivitiesController < ApplicationController
   # DELETE /activities/1
   # DELETE /activities/1.json
   def destroy
+    @member_id = @activity.member.id 
     @activity.destroy
     respond_to do |format|
-      format.html { redirect_to activities_url }
+      format.html { redirect_to member_url({:id => @member_id })}
       format.json { head :no_content }
     end
   end

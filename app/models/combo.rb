@@ -1,3 +1,3 @@
 class Combo < ActiveRecord::Base
-  has_one :member
+  has_many :member
 end

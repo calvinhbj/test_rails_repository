@@ -3,9 +3,10 @@ RailsTest::Application.routes.draw do
 
   resources :combos
 
-  resources :members 
+  resources :members do
+    resources :activities
+  end 
   
-  resources :activities
   
   resources :people
 
@@ -13,7 +14,7 @@ RailsTest::Application.routes.draw do
   get "welcome/say_hello" => "welcome#say"
   get "welcome" => "welcome#index"
   
-  get "/activities/new/:memberId" => "activities#new"
+  #get "/activities/new/:memberId" => "activities#new"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

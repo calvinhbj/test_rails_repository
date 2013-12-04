@@ -23,8 +23,7 @@
         <td><%= member.combo.name %></td>
         <td><%= link_to '查看', member %></td>
         <td><%= link_to '编辑', edit_member_path(member) %></td>
-        <!-- <td><%= link_to '添加活动', new_activity_path() %></td> -->
-        <td><%= link_to '添加活动', "/activities/new/#{member.id}" %></td>
+        <td><%= link_to '添加活动', new_member_activity_path({:member_id => member.id}) %></td>
         <td><%= link_to '删除', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
