@@ -19,6 +19,10 @@
     <%= f.text_field :name %></td>
   	</tr>
   	<tr>
+  		<th>性别：</th>
+  		<td><%= select("member", "sex", sex_list.each{|t| [t[0], t[1]]},  options ={:prompt => "请选择一个套餐"}) %></td>
+  	</tr>
+  	<tr>
   		<th>年龄：</th>
   		<td><%= f.number_field :age %></td>
   	</tr>
