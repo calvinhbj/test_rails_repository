@@ -1,27 +1,27 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= Member.human_attribute_name :name %>: </strong>
   <%= @member.name %>
 </p>
 
 <p>
-  <strong>Sex:</strong>
+  <strong><%= Member.human_attribute_name :sex %>: </strong>
   <%=  sex_name @member.sex %>
 </p>
 
 <p>
-  <strong>Age:</strong>
+  <strong><%= Member.human_attribute_name :age %>: </strong>
   <%= @member.age %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong><%= Member.human_attribute_name :description %>: </strong>
   <%= @member.description %>
 </p>
 
 <p>
-  <strong>Combo:</strong>
+  <strong><%= Member.human_attribute_name :combo %>: </strong>
   <%= @member.combo.name %>
 </p>
 
@@ -29,10 +29,10 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Fee</th>
-      <th>Description</th>
-      <th>Member</th>
+      <th><%=Activity.human_attribute_name :name%></th>
+      <th><%=Activity.human_attribute_name :fee%></th>
+      <th><%=Activity.human_attribute_name :description%></th>
+      <th><%=Activity.human_attribute_name :member%></th>
       <th></th>
       <th></th>
       <th></th>
@@ -48,13 +48,13 @@
         <td><% if activity.member != nil %>
         		<a><%=activity.member.name%></a>
         	<% end %></td>
-        <td><%= link_to 'Show', member_activity_path({:member_id => @member.id, :id => activity.id }) %></td>
-        <td><%= link_to 'Edit', edit_member_activity_path({:member_id => @member.id, :id => activity.id }) %></td>
-        <td><%= link_to 'Destroy',member_activity_path({:member_id => @member.id, :id => activity.id }), method: :delete, data: {:id => activity.id , confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t(:show), member_activity_path({:member_id => @member.id, :id => activity.id }) %></td>
+        <td><%= link_to t(:edit), edit_member_activity_path({:member_id => @member.id, :id => activity.id }) %></td>
+        <td><%= link_to t(:delete),member_activity_path({:member_id => @member.id, :id => activity.id }), method: :delete, data: {:id => activity.id , confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'Edit', edit_member_path(@member) %> |
-<%= link_to 'Back', members_path %>
+<%= link_to t(:edit), edit_member_path(@member) ,:class => 'button tiny radius'%> |
+<%= link_to t(:back), members_path ,:class => 'button tiny radius'%>

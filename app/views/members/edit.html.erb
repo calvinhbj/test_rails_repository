@@ -1,6 +1,6 @@
-<h1>Editing member</h1>
+<h1><%= t(:edit)%><%= t(:member)%></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @member %> |
-<%= link_to 'Back', members_path %>
+<%= link_to t(:show), @member ,:class => 'button tiny radius' %> |
+<%= link_to t(:back), members_path ,:class => 'button tiny radius' %>

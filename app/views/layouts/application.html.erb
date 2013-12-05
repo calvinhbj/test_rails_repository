@@ -4,7 +4,6 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-
 		<title><%= content_for?(:title) ? yield(:title) : "Rails Project" %></title>
 
 		<%= stylesheet_link_tag    "application" %>
@@ -13,22 +12,35 @@
 	</head>
 
 	<body>
-		<div>
-		<ul class="inline-list">
-			<li>
-				<%= link_to "首页",root_path %>
-			</li>
-			<li>
-				<%= link_to '会员', members_path %>
-			</li>
-			<li>
-				<%= link_to '套餐', combos_path %>
-			</li>
+		<nav class="top-bar" data-topbar>
+			<ul class="title-area">
+				<li class="name">
+					<h1><%= link_to t(:home),welcome_path %></h1>
+				</li>
+			</ul>
+			<section class="top-bar-section">
+				<!-- Right Nav Section -->
+				<ul class="right">
+					<!--<li class="active">
+						<a href="#">Right Nav Button Active</a>
+					</li>
+					 -->
+				</ul>
+				<!-- Left Nav Section -->
+				<ul class="left">
+					<li class="name">
+						<h1><%= link_to t(:member) , members_path %></h1>
+					</li>
+					<li class="name">
+						<h1><%= link_to t(:combo), combos_path %></h1>
+					</li>
+				</ul>
+			</section>
+		</nav>
 
-		</ul>
+		<div class="panel clearfix">
+			<%= yield %>
+			<%= javascript_include_tag "application" %>
 		</div>
-		
-		<%= yield %>
-		<%= javascript_include_tag "application" %>
 	</body>
 </html>

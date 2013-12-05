@@ -31,7 +31,7 @@ class ActivitiesController < ApplicationController
 
     respond_to do |format|
       if @activity.save
-        format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
+        format.html { redirect_to member_url(:id => @activity.member_id), notice: t(:create_successful , :obj => t(:activity)) }
         format.json { render action: 'show', status: :created, location: @activity }
       else
         format.html { render action: 'new' }
@@ -45,7 +45,7 @@ class ActivitiesController < ApplicationController
   def update
     respond_to do |format|
       if @activity.update(activity_params)
-        format.html { redirect_to  member_url(), notice: 'Activity was successfully updated.' }
+        format.html { redirect_to  member_activity_url(:member_id => @activity.member_id, :id => @activity.id), notice: t(:update_successful , :obj => t(:activity)) }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

@@ -1,0 +1,17 @@
+zh_CN:
+  activerecord:
+    models: #可以不写
+      member: '会员'
+      activity: '会员'
+    attributes:
+      member:
+        name: '姓名'
+        age: '年龄'
+        description: '描述'
+        sex: '性别'
+        combo: '套餐'
+      activity:
+        name: '活动名'
+        fee: '年费'
+        description: '描述'
+        member: '会员'
