@@ -22,3 +22,6 @@ zh_CN:
   create_fail: '%{obj}创建出错'
   update_successful: '%{obj}更新成功'
   update_fail: '%{obj}更新出错'
+  sign_out: '退出'
+  sign_in: '登录'
+  sign_up: '注册？'

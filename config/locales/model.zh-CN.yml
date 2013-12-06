@@ -15,3 +15,8 @@ zh_CN:
         fee: '年费'
         description: '描述'
         member: '会员'
+      user:
+        email: '邮箱地址'
+        password: '密码'
+        signed_out: '退出'
+        signed_in: '登录'

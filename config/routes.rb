@@ -1,6 +1,7 @@
 RailsTest::Application.routes.draw do
   
 
+  devise_for :users
   resources :combos
 
   resources :members do

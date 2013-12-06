@@ -1,3 +1,13 @@
 <center><h1>欢迎页面</h1></center>
-<p>Hola! It's <%= Time.now %></p>
-<p><%= link_to 'Hello!', welcome_say_hello_path %></p>
+<!-- <p><%= link_to 'Hello!', welcome_say_hello_path %></p> -->
+<center>
+	<%=image_tag('/assets/1.jpg',width:"200",height:"200")%>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<p>时间:<%= Time.now.strftime("%Y-%m-%d %H:%M:%S") %></p>
+</center>
+

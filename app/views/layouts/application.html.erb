@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh_CN">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,10 +21,18 @@
 			<section class="top-bar-section">
 				<!-- Right Nav Section -->
 				<ul class="right">
-					<!--<li class="active">
-						<a href="#">Right Nav Button Active</a>
+					<li><a href="#" style="color: yellow"><%= notice %></a></li>
+					<% if user_signed_in? then %>
+					<li  >
+						<a href="#">当前用户:<%=current_user.email%></a>
 					</li>
-					 -->
+					<li  >
+						<a href="#"><%= link_to t(:sign_out),destroy_user_session_path , method: :delete%></a>
+					</li>
+					<% else %>
+					<li><a href="#"><%= link_to t(:sign_in),new_user_session_path  %></a></li>
+					<li><a href="#"><%= link_to t(:sign_up),new_user_registration_path  %></a></li>
+					<% end %>
 				</ul>
 				<!-- Left Nav Section -->
 				<ul class="left">
@@ -38,7 +46,7 @@
 			</section>
 		</nav>
 
-		<div class="panel clearfix">
+		<div class="panel clearfix" style="padding-bottom: 100px;">
 			<%= yield %>
 			<%= javascript_include_tag "application" %>
 		</div>
